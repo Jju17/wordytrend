@@ -1,32 +1,31 @@
-import logo from "./logo.svg";
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import React from "react";
+import HeaderContainer from "./Header";
+import MainContainer from "./Main";
+import randomColor from "randomcolor";
+import firebase from "firebase";
 
-function App() {
-  const [data, setData] = useState(null);
+export const DataContext = React.createContext();
 
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  });
+export default function App() {
+  var db = firebase.firestore();
+  //   const [data, setData] = useState([]);
+  //   useEffect(() => {
+  //     db.collection("words")
+  //       .get()
+  //       .then((querySnapshot) => {
+  //         setData(querySnapshot);
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error getting documents: ", error);
+  //       });
+  //   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataContext.Provider value={db}>
+      <div className="App">
+        <HeaderContainer color={randomColor()} />
+        <MainContainer />
+      </div>
+    </DataContext.Provider>
   );
 }
-
-export default App;

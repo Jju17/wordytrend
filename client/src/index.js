@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import firebase from "firebase";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+var firebaseConfig = {
+  apiKey: "AIzaSyBtduYerVzPzWsr8qwFOOjn3KqGdM2WxDY",
+  authDomain: "wordytrend-c9df7.firebaseapp.com",
+  databaseURL:
+    "https://wordytrend-c9df7-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "wordytrend-c9df7",
+  storageBucket: "wordytrend-c9df7.appspot.com",
+  messagingSenderId: "248766352153",
+  appId: "1:248766352153:web:20d3d8565ac9daaf1f9388",
+  measurementId: "G-45JXDE3DEL",
+};
+firebase.initializeApp(firebaseConfig);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById("root"));
