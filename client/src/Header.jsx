@@ -20,6 +20,7 @@ const Title = styled.h1`
 
 const NewWord = styled.div`
   height: 50vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +29,20 @@ const NewWord = styled.div`
 const Tile = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   height: 250px;
-  width: 500px;
+  width: 60vw;
+  max-width: 500px;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 6px black;
+
+  @media (max-width: 500px) {
+    height: 250px;
+    width: 100%;
+    border-radius: 0;
+  }
 `;
 
 const TileTitle = styled.h2`
