@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import CellStats from "./CellStats"
 import { DataContext } from "./App";
 
 const SyledCell = styled.div`
@@ -16,13 +17,13 @@ const SyledCell = styled.div`
 const CellTitle = styled.h2`
   margin-top: 0;
 `;
-const CellStats = styled.div``;
 
 const CellVote = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 `;
 
 const CellButton = styled.button`
@@ -76,7 +77,7 @@ function Cell({ doc }) {
   return (
     <SyledCell>
       <CellTitle>{doc.name}</CellTitle>
-      <CellStats></CellStats>
+      <CellStats />
       <CellVote>
         <CellButton onClick={voteNeg}>-1</CellButton>
         {doc.votes}
